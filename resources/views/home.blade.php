@@ -14,8 +14,12 @@
             <div class="nav-wrapper container">
                 <a id="logo-container" href="#" class="brand-logo">Algae IoT</a>
                 <ul class="right hide-on-med-and-down">
-                    <li>
-</li>
+                     @if (Auth::guest())
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <!--<li><a href="{{ url('/register') }}">Register</a></li>-->
+                @else
+                    <li><a href="{{ url(config('laraadmin.adminRoute')) }}">{{ Auth::user()->name }}</a></li>
+                @endif
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                      @if (Auth::guest())
